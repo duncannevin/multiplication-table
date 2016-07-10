@@ -1,0 +1,80 @@
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<style type="text/css">
+		
+		.container{
+			margin: 0 auto;
+			width: 1000px;
+			height: 1000px;
+			display: table;
+		}
+		.outer{
+			text-align: center;
+		}
+		.inner{
+			text-align: center;
+		}
+		.box, .leftBox{border: 1px solid black;
+			border-radius: 5px;
+		}
+		.box{
+			display: inline-block;
+			width: 9%;
+			height: 9%;
+		}
+		.leftBox{
+			display: block;
+			width: 92.75%;
+			height: 9%;
+		}
+		#top{
+			display: table-cell;
+			width: 100%;
+			height: 9%;
+		}
+		#leftSide{
+			display: table-cell;
+			height: 100%;
+			width: 9%;
+		}
+		.outer p{
+			font-style: italic;
+			font-weight: bold;
+		}
+		p{
+			margin: 40%;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="leftSide"></div>
+		<div id="mainBody"></div>
+	</div>
+<script type="text/javascript">
+	var countForanswers = 1;
+
+	for(var q = 0; q<=10; q++){
+		if(q === 0){
+			$('#leftSide').append('<div id="left' + q + '" class="leftBox outer" style="margin-bottom: 3px"><p>' + q + '</p></div>');
+		}else{
+			$('#leftSide').append('<div id="left' + q + '" class="leftBox outer"><p>' + q + '</p></div>');
+		}	
+		
+		for(var i = 1; i<=10; i++){
+			if(q === 0){
+				$('#mainBody').append('<div id="top' + i + '" class="box outer" style="margin-bottom: 3px"><p>' + i + '</p></div>');
+			}
+			else{
+				$('#mainBody').append('<div id="answer' + countForanswers + '" class="box inner"><p>' + q*i + '</p></div>');
+				countForanswers++;
+			}
+		}
+	}
+
+</script>
+</body>
+</html>
